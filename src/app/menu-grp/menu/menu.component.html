@@ -1,0 +1,51 @@
+<nav class="dos-menu">
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="cv-section"
+     [class.dos-menu-item-active]="isActive('cv-section')">
+    {{ 'menu.home' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="contacts-section"
+     [class.dos-menu-item-active]="isActive('contacts-section')">
+    {{ 'menu.contacts' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="position-section"
+     [class.dos-menu-item-active]="isActive('position-section')">
+    {{ 'menu.position' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="summary-section"
+     [class.dos-menu-item-active]="isActive('summary-section')">
+    {{ 'menu.summary' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="experience-section"
+     [class.dos-menu-item-active]="isActive('experience-section')">
+    {{ 'menu.experience' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="education-section"
+     [class.dos-menu-item-active]="isActive('education-section')">
+    {{ 'menu.education' | translate }}
+  </a>
+
+  <a class="dos-menu-item dos-menu-left"
+     routerLink="/"
+     fragment="courses-section"
+     [class.dos-menu-item-active]="isActive('courses-section')">
+    {{ 'menu.courses' | translate }}
+  </a>
+  <app-language-switcher></app-language-switcher>
+</nav>

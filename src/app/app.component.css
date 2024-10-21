@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+  color: green;
+  font-family: 'Courier New', monospace;
+  padding-top: 60px;
+}
+
+.console {
+  border: 1px solid #00ff00;
+  padding: 10px;
+}
+
+input, button {
+  background-color: black;
+  color: green;
+  border: 1px solid #00ff00;
+  font-family: 'Courier New', monospace;
+}

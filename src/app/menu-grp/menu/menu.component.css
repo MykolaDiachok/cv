@@ -1,0 +1,50 @@
+.dos-menu {
+  position: fixed;  /* Fixes the menu to the top of the viewport */
+  top: 0;  /* Aligns the menu to the top of the page */
+  left: 0;  /* Aligns the menu to the left of the page */
+  width: 100%;  /* Ensures the menu spans the full width of the page */
+  background-color: black;  /* Sets background color of the menu */
+  padding: 10px 0;  /* Adds padding inside the menu */
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between; /* Простір між елементами */
+  align-items: center; /* Вертикальне вирівнювання */border: 1px solid green;
+
+  font-family: 'Courier New', monospace;
+}
+
+
+.dos-menu-item {
+  color: green;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-right: 1px solid green;
+}
+
+
+.dos-menu-item:last-child {
+  border-right: none;
+}
+
+
+.dos-menu-item-active {
+  background-color: green;
+  color: black;
+}
+
+.dos-menu-left {
+  flex: 1; /* Left section occupies available space on the left */
+}
+
+.dos-menu-center {
+  display: flex;
+  justify-content: center; /* Center the items */
+  flex: 1; /* Center section occupies remaining available space */
+}
+
+.dos-menu-right {
+  flex: 1; /* Right section occupies available space on the right */
+  display: flex;
+  justify-content: flex-end; /* Align language selection to the right */
+}

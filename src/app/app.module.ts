@@ -6,6 +6,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import { appRoutes } from './app.routes';
+import {LanguageSwitcherComponent} from './menu-grp/language-switcher/language-switcher.component';
+import {MenuComponent} from './menu-grp/menu/menu.component';
+import {CvComponent} from './cv-grp/cv/cv.component';
 
 
 
@@ -26,7 +29,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    LanguageSwitcherComponent,
+    MenuComponent,
+    CvComponent
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

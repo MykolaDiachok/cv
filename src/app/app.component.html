@@ -1,11 +1,2 @@
-<div>
-  <h1>{{ 'name' | translate }}</h1>
-  <h2>{{ 'title' | translate }}</h2>
-  <p>{{ 'experience' | translate }}</p>
-
-  <select (change)="switchLanguage($event)">
-    <option value="en">English</option>
-    <option value="uk">Українська</option>
-    <option value="hr">Hrvatski</option>
-  </select>
-</div>
+<app-menu></app-menu>
+<router-outlet></router-outlet>
