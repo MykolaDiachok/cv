@@ -45,7 +45,10 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/cv/"
+
+
             },
             "development": {
               "optimization": false,
@@ -92,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "48ac2f5a-9118-49a1-883a-0e342d2b9a6b"
   }
 }
