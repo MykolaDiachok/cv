@@ -1,4 +1,10 @@
 {
+  "language": "Українська",
+  "languages": {
+    "en": "Англійська",
+    "uk": "Українська",
+    "hr": "Хорватська"
+  },
   "menu": {
     "home": "Початок",
     "contacts": "Контакти",
@@ -12,10 +18,10 @@
   "title": "Розробник програмного забезпечення",
   "experience": "Досвід",
   "contacts" : {
-    "full_name": "Mykola Diachok",
+    "full_name": "Микола Дячок",
     "date_of_birth": "19.05.1980",
     "phone": "+380676112798",
     "email": "ndyachok@gmail.com",
-    "location": "Kyiv, Ukraine"
+    "location": "Київ, Україна"
   }
 }

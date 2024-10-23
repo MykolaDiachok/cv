@@ -1,5 +1,5 @@
 <select class="dos-language-selector" [value]="selectedLanguage" (change)="switchLanguage($event)">
-  <option value="en">English</option>
-  <option value="uk">Українська</option>
-  <option value="hr">Hrvatski</option>
+  <option value="en">{{ 'languages.en' | translate }}</option>
+  <option value="uk">{{ 'languages.uk' | translate }}</option>
+  <option value="hr">{{ 'languages.hr' | translate }}</option>
 </select>

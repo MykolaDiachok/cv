@@ -1,4 +1,10 @@
 {
+  "language": "English",
+  "languages": {
+    "en": "English",
+    "uk": "Ukrainian",
+    "hr": "Croatian"
+  },
   "menu": {
     "home": "Home",
     "contacts": "Contacts",
