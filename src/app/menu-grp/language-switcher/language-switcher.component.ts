@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {LanguageStore} from '../../../stores/language.store';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LanguageStore } from '../../../stores/language.store';
 
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  imports: [
-    TranslateModule
-  ],
+  imports: [TranslateModule],
   templateUrl: './language-switcher.component.html',
-  styleUrl: './language-switcher.component.css'
+  styleUrl: './language-switcher.component.css',
 })
 export class LanguageSwitcherComponent {
   selectedLanguage = 'en';
 
-  constructor(private translate: TranslateService, private router: Router, private route: ActivatedRoute, private languageStore: LanguageStore) {
-    this.route.queryParams.subscribe(params => {
+  constructor(
+    private translate: TranslateService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private languageStore: LanguageStore,
+  ) {
+    this.route.queryParams.subscribe((params) => {
       const lang = params['lan'] || 'en';
       this.selectedLanguage = lang;
       this.translate.use(lang);
+      this.languageStore.;
     });
   }
 
@@ -30,5 +34,4 @@ export class LanguageSwitcherComponent {
 
     this.router.navigate([], { queryParams: { lan: selectedLanguage } });
   }
-
 }
