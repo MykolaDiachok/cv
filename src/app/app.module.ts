@@ -9,6 +9,7 @@ import { appRoutes } from './app.routes';
 import {LanguageSwitcherComponent} from './menu-grp/language-switcher/language-switcher.component';
 import {MenuComponent} from './menu-grp/menu/menu.component';
 import {CvComponent} from './cv-grp/cv/cv.component';
+import { LanguageStore } from './stores/language.store';
 
 
 
@@ -34,7 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MenuComponent,
     CvComponent
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), LanguageStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
