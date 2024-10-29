@@ -13,7 +13,7 @@ const initialState: LanguageState = {
   selectedLanguage: 'en',
 };
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LanguageStore extends ComponentStore<LanguageState> {
   constructor(private translation: TranslationService) {
     super(initialState);
