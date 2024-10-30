@@ -1,5 +1,3 @@
 <select class="dos-language-selector" [value]="selectedLanguage" (change)="switchLanguage($event)">
-  <option value="en">{{ 'languages.en' | translate }}</option>
-  <option value="uk">{{ 'languages.uk' | translate }}</option>
-  <option value="hr">{{ 'languages.hr' | translate }}</option>
+  <option *ngFor="let lang of languages" [value]="lang">{{ ('languages.' + lang) | translate }}</option>
 </select>

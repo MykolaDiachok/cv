@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { Observable, tap } from 'rxjs';
+import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs';
 import { TranslationService } from '../services/translation.service';
 
 export interface LanguageState {
@@ -26,11 +26,29 @@ export class LanguageStore extends ComponentStore<LanguageState> {
     languages,
   }));
 
-  readonly setLanguages = this.effect<string[]>((trigger$)=>trigger$.pipe(
-    tap((languages) => {
-      this.updateLanguages(languages);
-    })
-  ));
+  readonly setLanguages = this.effect<string[]>((trigger$) =>
+    trigger$.pipe(
+      tap((languages) => {
+        this.updateLanguages(languages);
+      }),
+    ),
+  );
+
+  readonly getLanguages = this.effect<void>((trigger$) =>
+    trigger$.pipe(
+      switchMap(() =>
+        this.translation.getAvailableLanguages().pipe(
+          tap((lans) => {
+            return this.setLanguages(lans.languages);
+          }),
+          catchError((error) => {
+            console.error('error:', error);
+            return EMPTY;
+          }),
+        ),
+      ),
+    ),
+  );
 
   readonly selectedLanguage$: Observable<string> = this.select((state) => state.selectedLanguage);
 
@@ -39,5 +57,11 @@ export class LanguageStore extends ComponentStore<LanguageState> {
     selectedLanguage,
   }));
 
-  readonly setSelectedLanguage = this.effect<string>((trigger$)=>trigger$.pipe(tap((selectedLanguage: string) => {this.updateSelectedLanguage(selectedLanguage)})));
+  readonly setSelectedLanguage = this.effect<string>((trigger$) =>
+    trigger$.pipe(
+      tap((selectedLanguage: string) => {
+        this.updateSelectedLanguage(selectedLanguage);
+      }),
+    ),
+  );
 }
