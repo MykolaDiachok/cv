@@ -1,0 +1,12 @@
+{
+  "name": "Mykola",
+  "title": "Programer",
+  "experience": "Iskustvo",
+  "contacts" : {
+    "full_name": "Mykola Diachok",
+    "date_of_birth": "19.05.1980",
+    "phone": "+380676112798",
+    "email": "ndyachok@gmail.com",
+    "location": "Kyiv, Ukraine"
+  }
+}

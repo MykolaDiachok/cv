@@ -1,0 +1,17 @@
+{
+  "language": "Hrvatski",
+  "languages": {
+    "en": "Engleski",
+    "uk": "Ukrajinski",
+    "hr": "Hrvatski"
+  },
+  "menu": {
+    "home": "Home",
+    "contacts": "Contacts",
+    "position": "Position",
+    "summary": "Summary",
+    "experience": "Experience",
+    "education": "Education",
+    "courses": "Courses"
+  }
+}
