@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs';
+import { catchError, EMPTY, Observable, switchMap, tap, withLatestFrom } from 'rxjs';
 import { TranslationService } from '../services/translation.service';
 
 export interface LanguageState {
@@ -59,8 +59,10 @@ export class LanguageStore extends ComponentStore<LanguageState> {
 
   readonly setSelectedLanguage = this.effect<string>((trigger$) =>
     trigger$.pipe(
-      tap((selectedLanguage: string) => {
-        this.updateSelectedLanguage(selectedLanguage);
+      withLatestFrom(this.languages$),
+      tap(([selectedLanguage, languages]) => {
+        const existLanguage = languages.includes(selectedLanguage);
+        this.updateSelectedLanguage(existLanguage ? selectedLanguage : 'en');
       }),
     ),
   );
