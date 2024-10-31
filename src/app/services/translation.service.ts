@@ -7,8 +7,8 @@ import { LanguageConfig } from '../models/language-config';
   providedIn: 'root',
 })
 export class TranslationService {
-  private i18nPath = 'assets/i18n/';
-  private languageListUrl = 'assets/i18n/languages.json';
+  private i18nPath = 'assets/i18n/app/';
+  private languageListUrl = 'assets/i18n/app/languages.json';
 
   constructor(private http: HttpClient) {}
 

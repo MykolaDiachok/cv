@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient , HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {AppComponent} from './app.component';
-import {RouterModule} from '@angular/router';
+import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
-import {LanguageSwitcherComponent} from './menu-grp/language-switcher/language-switcher.component';
-import {MenuComponent} from './menu-grp/menu/menu.component';
-import {CvComponent} from './cv-grp/cv/cv.component';
+import { LanguageSwitcherComponent } from './menu-grp/language-switcher/language-switcher.component';
+import { MenuComponent } from './menu-grp/menu/menu.component';
+import { CvComponent } from './cv-grp/cv/cv.component';
 import { LanguageStore } from './stores/language.store';
-
-
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { HttpLoaderFactory } from './shared/http-loader-factory';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
@@ -28,14 +20,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     LanguageSwitcherComponent,
     MenuComponent,
-    CvComponent
+    CvComponent,
   ],
   providers: [provideHttpClient(), LanguageStore],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -13,15 +13,5 @@
     "experience": "Досвід",
     "education": "Освіта",
     "courses": "Навички"
-  },
-  "name": "Микола",
-  "title": "Розробник програмного забезпечення",
-  "experience": "Досвід",
-  "contacts" : {
-    "full_name": "Микола Дячок",
-    "date_of_birth": "19.05.1980",
-    "phone": "+380676112798",
-    "email": "ndyachok@gmail.com",
-    "location": "Київ, Україна"
   }
 }
