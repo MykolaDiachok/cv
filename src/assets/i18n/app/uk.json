@@ -13,5 +13,17 @@
     "experience": "Досвід",
     "education": "Освіта",
     "courses": "Навички"
+  },
+  "contacts_component": {
+    "name": "Контактні дані",
+    "first_name": "Ім'я",
+    "middle_name": "Середнє ім'я",
+    "patronymic": "по-батькові",
+    "last_name": "Фамілія",
+    "full_name": "Повне ім'я",
+    "date_of_birth": "Дата народження",
+    "phone": "Телефон",
+    "email": "Пошта",
+    "location": "Місце знаходження"
   }
 }

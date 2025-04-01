@@ -8,7 +8,6 @@ import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-language-switcher',
-  standalone: true,
   imports: [TranslateModule, ReactiveFormsModule, NgForOf],
   templateUrl: './language-switcher.component.html',
   styleUrl: './language-switcher.component.css',

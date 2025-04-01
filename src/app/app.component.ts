@@ -1,14 +1,22 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { LanguageStore } from './stores/language.store';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { AutoUnsubscribe } from './shared/abstracts/auto-unsubscribe';
+import { registerLocaleData } from '@angular/common';
+import localeUk from '@angular/common/locales/uk';
+import localeEn from '@angular/common/locales/en';
+import localeHr from '@angular/common/locales/hr';
+import { LocaleService } from './shared/services/locale.service';
+import { MenuComponent } from './menu-grp/menu/menu.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  imports: [RouterOutlet, MenuComponent, TranslateModule],
+  standalone: true,
 })
 export class AppComponent extends AutoUnsubscribe implements AfterViewInit, OnInit {
   title = 'cv';
@@ -18,8 +26,12 @@ export class AppComponent extends AutoUnsubscribe implements AfterViewInit, OnIn
     private route: ActivatedRoute,
     private languageStore: LanguageStore,
     private translate: TranslateService,
+    private localeService: LocaleService,
   ) {
     super();
+    registerLocaleData(localeUk, 'uk');
+    registerLocaleData(localeEn, 'en');
+    registerLocaleData(localeHr, 'hr');
   }
 
   ngOnInit(): void {
@@ -29,6 +41,10 @@ export class AppComponent extends AutoUnsubscribe implements AfterViewInit, OnIn
       const lang = params['lan'] || browserLanguage || 'en';
       this.translate.use(lang);
       this.languageStore.setSelectedLanguage(lang);
+      document?.querySelector('html')?.setAttribute('lang', lang);
+      this.localeService.setLocale(lang);
+
+      this.reloadCurrentRoute();
     });
   }
 
@@ -42,6 +58,13 @@ export class AppComponent extends AutoUnsubscribe implements AfterViewInit, OnIn
           }
         }
       });
+    });
+  }
+
+  private reloadCurrentRoute(): void {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
   }
 }

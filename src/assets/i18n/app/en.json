@@ -13,6 +13,18 @@
     "experience": "Experience",
     "education": "Education",
     "courses": "Courses"
+  },
+  "contacts_component": {
+    "name": "Contacts",
+    "first_name": "Name",
+    "middle_name": "Middle Name",
+    "patronymic": "Patronymic",
+    "last_name": "Family name",
+    "full_name": "Full name",
+    "date_of_birth": "Date of birth",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location"
   }
 }
 
